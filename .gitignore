@@ -1,0 +1,16 @@
+bin
+obj
+*.suo
+*.user
+.vs
+/NuGet
+*.DotSettings
+.nuget
+
+# JetBrains Rider
+.idea/
+node_modules
+artifacts
+.vscode
+.serverless
+__pycache__

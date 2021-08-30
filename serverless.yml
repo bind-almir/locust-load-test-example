@@ -1,0 +1,29 @@
+
+
+service: locust-load-test-example
+
+frameworkVersion: '2'
+
+provider:
+  name: aws
+  region: us-west-2
+  stage: dev
+  runtime: dotnetcore3.1
+  lambdaHashingVersion: 20201221
+
+  apiGateway:
+    shouldStartNameWithService: true
+
+package:
+  individually: true
+  artifact: bin/Release/netcoreapp3.1/hello.zip
+
+functions:
+  hello:
+    handler: CsharpHandlers::AwsDotnetCsharp.Handler::Hello
+    events:
+      - http: 
+          cors: true
+          method: get
+          path: hello
+      
